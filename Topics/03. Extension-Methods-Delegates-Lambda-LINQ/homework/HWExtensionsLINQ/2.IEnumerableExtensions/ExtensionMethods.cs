@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1StringBuilder.Substring
+namespace _2.IEnumerableExtensions
 {
-    class Program
+    public static class ExtensionMethods
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }
