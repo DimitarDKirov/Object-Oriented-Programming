@@ -20,7 +20,14 @@ namespace LongestString
                 .Where(st => st.Length == array.Max(s => s.Length))
                 .ToList()
                 .First();
-            Console.WriteLine(longestString);
+
+            var lonestLINQ =
+                (from st in array
+                 orderby st.Length descending
+                 select st)
+                 .First();
+                
+            Console.WriteLine(lonestLINQ);
         }
     }
 }

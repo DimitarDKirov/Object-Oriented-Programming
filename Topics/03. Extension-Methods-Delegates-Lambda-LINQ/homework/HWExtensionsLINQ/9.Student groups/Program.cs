@@ -5,6 +5,7 @@
 //Problem 13. Extract students by marks
 //Problem 14. Extract students with two marks
 //Problem 15. Extract marks
+//Problem 16.* Groups
 //Problem 18. Grouped by GroupNumber
 //Problem 19. Grouped by GroupName extensions
 
@@ -127,6 +128,25 @@ namespace Student_groups
                 {
                     Console.WriteLine("\t{0} {1}", student.FirstName, student.LastName);
                 }
+            }
+
+            var groups = new List<Group>()
+            {
+                new Group() {DepartmentName= "Mathematics", GroupNumber=2},
+                new Group() {DepartmentName= "Informatics", GroupNumber=1},
+                new Group() {DepartmentName= "Engineering", GroupNumber=3},
+            };
+            Console.WriteLine();
+
+            Console.WriteLine("Problem 16.* Groups");
+            var mathStudents =
+                from student in students
+                join groupDep in groups on student.GroupNumber equals groupDep.GroupNumber
+                where groupDep.DepartmentName == "Mathematics"
+                select student;
+            foreach (var student in mathStudents)
+            {
+                Console.WriteLine("{0} {1}", student.FirstName, student.LastName);
             }
         }
     }
