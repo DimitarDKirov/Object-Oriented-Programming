@@ -8,8 +8,11 @@ namespace StudentsAndWorkers
 {
     class Worker : Human
     {
-        public Worker(string firstName, string lastName) : base(firstName, lastName)
-        { }
+        public Worker(string firstName, string lastName, double weekSalary) : base(firstName, lastName)
+        {
+            this.WeekSalary = weekSalary;
+            this.WorkHoursPerDay = 8;
+        }
 
         public double WeekSalary { get; set; }
 

@@ -20,6 +20,5 @@ namespace StudentsAndWorkers
             get { return grade; }
             set { grade = value; }
         }
-
     }
 }
