@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankAccounts
 {
-    class Deposit : Account
+    class Deposit : Account, IDrawable
     {
-        public Deposit(ICustomer customer, double interstRate) : base(customer, interstRate)
+        public Deposit(ICustomer customer, double interestRate) : base(customer, interestRate)
         { }
 
         public void Withdraw(double amount)

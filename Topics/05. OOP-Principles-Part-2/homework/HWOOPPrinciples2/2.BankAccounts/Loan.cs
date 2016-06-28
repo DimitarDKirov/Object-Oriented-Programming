@@ -8,7 +8,7 @@ namespace BankAccounts
 {
     class Loan : Account
     {
-        public Loan(ICustomer customer, double interstRate) : base(customer, interstRate)
+        public Loan(ICustomer customer, double interestRate) : base(customer, interestRate)
         { }
 
         public override double CalculateInterest(uint months)

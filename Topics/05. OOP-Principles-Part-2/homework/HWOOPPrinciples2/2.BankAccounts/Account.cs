@@ -8,10 +8,10 @@ namespace BankAccounts
 {
     abstract class Account
     {
-        public Account(ICustomer customer, double interstRate)
+        public Account(ICustomer customer, double interestRate)
         {
             this.Customer = customer;
-            this.InterestRate = interstRate;
+            this.InterestRate = interestRate;
             this.Balance = 0;
         }
 
@@ -29,7 +29,7 @@ namespace BankAccounts
 
         public virtual double CalculateInterest(uint months)
         {
-            return this.InterestRate * months*this.Balance;
+            return (1 + this.InterestRate * months / 100) * this.Balance;
         }
 
         public override string ToString()

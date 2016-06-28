@@ -8,6 +8,6 @@ namespace BankAccounts
 {
     interface IDrawable
     {
-        void Draw(decimal amount);
+        void Withdraw(double amount);
     }
 }

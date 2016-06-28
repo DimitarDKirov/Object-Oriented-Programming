@@ -8,7 +8,7 @@ namespace BankAccounts
 {
     class Mortgage : Account
     {
-        public Mortgage(ICustomer customer, double interstRate) : base(customer, interstRate)
+        public Mortgage(ICustomer customer, double interestRate) : base(customer, interestRate)
         { }
 
         public override double CalculateInterest(uint months)
@@ -20,18 +20,12 @@ namespace BankAccounts
                 return base.CalculateInterest(months - 6);
             }
             //company
-            uint halfInterestPeriod, fullInterestPeriod;
             if (months > 12)
             {
-                halfInterestPeriod = 12;
-                fullInterestPeriod = months - 12;
+                return base.CalculateInterest(months - 12) + this.Balance + this.Balance * 12 * this.InterestRate / 2;
             }
-            else
-            {
-                halfInterestPeriod = months;
-                fullInterestPeriod = 0;
-            }
-            return base.CalculateInterest(fullInterestPeriod) + base.CalculateInterest(halfInterestPeriod) / 2;
+
+            return base.CalculateInterest(months) / 2;
         }
     }
 }
