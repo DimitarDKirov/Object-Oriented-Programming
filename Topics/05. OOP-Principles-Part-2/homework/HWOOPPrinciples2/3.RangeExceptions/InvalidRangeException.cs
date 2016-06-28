@@ -12,7 +12,7 @@ namespace RangeExceptions
 
         public T End { get; set; }
 
-        public InvalidRangeException(string message, Exception innerException, T start, T end) : base(message, innerException)
+        public InvalidRangeException(T start, T end) : base(string.Format("Allowed range is betweeen {0} and {1}", start, end))
         {
             this.Start = start;
             this.End = end;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Problem 2. Bank accounts
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +36,7 @@ namespace BankAccounts
             Loan loanCOmpany = new Loan(company, 4);
             loanCOmpany.Deposit(1000);
             Console.WriteLine("Loan for company, interest for 6 months {0:c}", loanCOmpany.CalculateInterest(6));
-            Mortgage mortgageCompany = new Mortgage(company, 3);
+            Mortgage mortgageCompany = new Mortgage(company, 10);
             mortgageCompany.Deposit(1000);
             Console.WriteLine("Mortgage for company, interest for 6 months: {0:c}", mortgageCompany.CalculateInterest(6));
         }
