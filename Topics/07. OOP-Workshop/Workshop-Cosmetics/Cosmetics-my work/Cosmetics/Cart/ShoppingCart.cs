@@ -1,4 +1,5 @@
-﻿using Cosmetics.Contracts;
+﻿using Cosmetics.Common;
+using Cosmetics.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,33 +14,35 @@ namespace Cosmetics.Cart
 
         public ShoppingCart()
         {
-            this.ProductList = null;
+            this.ProductList = new List<IProduct>();
         }
 
         public ICollection<IProduct> ProductList
         {
-            get { return this.productList; }
+            get { return new List<IProduct>(this.productList); }
             set { productList = value; }
         }
 
         public void AddProduct(IProduct product)
         {
-            throw new NotImplementedException();
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Product"));
+            this.productList.Add(product);
         }
 
         public void RemoveProduct(IProduct product)
         {
-            throw new NotImplementedException();
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Product"));
+            this.productList.Remove(product);
         }
 
         public bool ContainsProduct(IProduct product)
         {
-            throw new NotImplementedException();
+            return this.productList.Contains(product);
         }
 
         public decimal TotalPrice()
         {
-            throw new NotImplementedException();
+            return this.productList.Sum(p => p.Price);
         }
     }
 }
