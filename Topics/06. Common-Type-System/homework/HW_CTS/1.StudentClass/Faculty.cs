@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.StudentClass
+namespace StudentClass
 {
     enum Faculty
     {
-
-        InternationalEconomicsAndPolitics,
-        AppliedInformaticsAndStatistics,
-        FacultyOfMathematicsAndInformatics,
-        FacultyOfPhysics,
-
+        International_Economics_And_Politics,
+        Applied_Informatics_And_Statistics,
+        Faculty_Of_Mathematics_And_Informatics,
+        Faculty_Of_Physics,
+        Faculty_Of_Computational_Engineering_And_Automation,
+        Faculty_Of_Computational_Engineering
 
     }
 }
