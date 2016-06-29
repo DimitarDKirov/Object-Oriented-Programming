@@ -22,10 +22,10 @@ namespace BankAccounts
             //company
             if (months > 12)
             {
-                return base.CalculateInterest(months - 12) + this.Balance + this.Balance * 12 * this.InterestRate / 2;
+                return base.CalculateInterest(months - 12) + this.Balance * 12 * this.InterestRate / 2;
             }
 
-            return base.CalculateInterest(months) / 2;
+            return this.Balance * (1 + months * this.InterestRate / 200);
         }
     }
 }
