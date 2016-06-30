@@ -8,6 +8,7 @@ namespace StudentClass
 {
     enum Specialty
     {
+        None,
         Informatics,
         Computer_Sciences_and_Engineering,
         Mathematics,

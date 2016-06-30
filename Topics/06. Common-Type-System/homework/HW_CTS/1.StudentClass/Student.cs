@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentClass
 {
-    class Student
+    class Student : ICloneable, IComparable<Student>
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -20,10 +20,11 @@ namespace StudentClass
         public Faculty Faculty { get; set; }
         public Specialty Specialty { get; set; }
 
-        public Student(string firstName, string lastName, string ssn)
+        public Student(string firstName, string lastName, string middleName, string ssn)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.MiddleName = middleName;
             this.SSN = ssn;
             this.Address = null;
         }
@@ -58,16 +59,41 @@ namespace StudentClass
         public override string ToString()
         {
             StringBuilder builer = new StringBuilder();
-            builer.Append(this.FirstName);
-            if (!string.IsNullOrEmpty(this.MiddleName))
-                builer.Append(" " + this.MiddleName);
-            builer.Append(this.LastName);
-            builer.AppendFormat(", SSN: {0}", this.SSN);
+            builer.AppendFormat("{0} {1} {2}, SSN: {3}", this.FirstName, this.MiddleName, this.LastName, this.SSN);
             builer.AppendLine();
+            builer.AppendLine("Address: " + this.Address);
+            builer.AppendFormat("Phone: {0} Email: {1} Course: {2}", this.Phone, this.Email, this.Course != 0 ? this.Course.ToString() : "N/A");
+            builer.AppendLine();
+            builer.AppendFormat("{0} {1} {2}", this.University, this.Faculty, this.Specialty);
+            builer.AppendLine();
+            return builer.ToString();
+        }
 
+        public object Clone()
+        {
+            return new Student(this.FirstName, this.LastName, this.MiddleName, this.SSN)
+            {
+                Address = this.Address.Clone() as Address,
+                Phone = this.Phone,
+                Email = this.Email,
+                Course = this.Course,
+                University = this.University,
+                Faculty = this.Faculty,
+                Specialty = this.Specialty
+            };
 
-            return builer.ToString(); 
+        }
 
+        public int CompareTo(Student other)
+        {
+            if (this.FirstName != other.FirstName)
+                return this.FirstName.CompareTo(other.FirstName);
+            if (this.LastName != other.LastName)
+                return this.LastName.CompareTo(other.LastName);
+            if (this.MiddleName != other.MiddleName)
+                return this.MiddleName.CompareTo(other.MiddleName);
+
+            return this.SSN.CompareTo(other.SSN);
         }
     }
 }
