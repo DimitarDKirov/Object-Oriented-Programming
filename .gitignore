@@ -185,3 +185,7 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 /Topics/01. Defining-Classes-Part-1/homework/HWDefiningClasses1/
+Topics/05. OOP-Principles-Part-2/demos/ForTest/App.config
+Topics/05. OOP-Principles-Part-2/demos/ForTest/ForTest.csproj
+Topics/05. OOP-Principles-Part-2/demos/ForTest/Program.cs
+Topics/05. OOP-Principles-Part-2/demos/ForTest/Properties/AssemblyInfo.cs

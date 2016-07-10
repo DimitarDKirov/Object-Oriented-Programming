@@ -16,5 +16,6 @@ class TestFractions
         Console.WriteLine("f1 / f2 as double = {0}", (double)(f1 / f2));
         Console.WriteLine("-(f1+f2)*(f1-f2/f1) = {0}", -(f1 + f2) * (f1 - f2 / f1));
         Console.WriteLine("++f1 = {0}", ++f1);
+        Console.WriteLine((Fraction)0.25);
     }
 }
